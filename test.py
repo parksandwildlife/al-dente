@@ -59,6 +59,8 @@ class LearningTest(unittest.TestCase):
         The setUp should log the user into the course landing page.
         """
         print("Test whether user can log in and gets to landing page.")
+        self.chrome.save_screenshot('results/chrome_logged_in.png')
+        self.firefox.save_screenshot('results/firefox_logged_in.png')
         assert "You are logged in as" in self.chrome.page_source
         assert "You are logged in as" in self.firefox.page_source
 
