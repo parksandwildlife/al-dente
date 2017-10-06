@@ -1,8 +1,13 @@
 language: python
 sudo: enabled
+addons:
+  chrome: stable
 before_install:
   - sudo apt-get install wget unzip
-  - sh download_drivers.sh
   - pip install -r requirements.txt
+install:
+  - sh download_drivers_travis.sh
 script:
+  - whereis google-chrome-stable
+  - whereis chromedriver
   - python test.py

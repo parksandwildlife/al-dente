@@ -3,22 +3,11 @@
 # import argparse
 from dotenv import find_dotenv, load_dotenv
 from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
 import os
 import unittest
 
 # Read config
 load_dotenv(find_dotenv())
-
-# from selenium.webdriver.common.desired_capabilities import (
-# DesiredCapabilities)
-# from selenium.webdriver.common.keys import Keys
-
-desired_cap = {
-    'browser': 'chrome',
-    'build': 'First build',
-    'browserstack.debug': 'true'
-    }
 
 
 class LearningTest(unittest.TestCase):

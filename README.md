@@ -5,11 +5,13 @@
 * Create a virtualenv for this project
 * Clone this repo
 * Pip install dependencies
+* Download drivers
 
 ```
 mkproject turtle-testing
-git clone GITHUBREPO .
+git clone https://github.com/parksandwildlife/al-dente.git .
 pip install -r requirements.txt
+sh download_drivers.sh
 ```
 
 ## Setup
@@ -31,5 +33,6 @@ python test.py
 deactivate
 ```
 
+## Tests
 
-http://www.seleniumhq.org/docs/03_webdriver.jsp
+Tests are written using the Selenium Webdriver (see [docs](http://www.seleniumhq.org/docs/03_webdriver.jsp)).
