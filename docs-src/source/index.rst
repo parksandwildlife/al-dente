@@ -1,9 +1,9 @@
-.. al-dente documentation master file, created by
-   sphinx-quickstart on Sat Oct  7 07:19:07 2017.
+.. Al-dente documentation master file, created by
+   sphinx-quickstart on Sat Oct  7 07:35:50 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to al-dente's documentation!
+Welcome to Al-dente's documentation!
 ====================================
 
 .. toctree::

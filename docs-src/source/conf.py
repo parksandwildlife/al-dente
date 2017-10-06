@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Sphinx configuration."""
 #
-# al-dente documentation build configuration file, created by
-# sphinx-quickstart on Sat Oct  7 07:19:07 2017.
+# Al-dente documentation build configuration file, created by
+# sphinx-quickstart on Sat Oct  7 07:35:50 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -31,13 +30,13 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autodoc',
+extensions = ['sphinx.ext.autodoc',
+    'sphinx.ext.todo',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['xtemplates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -49,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'al-dente'
+project = u'Al-dente'
 copyright = u'2017, Florian Mayer'
 author = u'Florian Mayer'
 
@@ -72,7 +71,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -97,7 +96,7 @@ html_theme = 'alabaster'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['xstatic']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -118,7 +117,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'al-dentedoc'
+htmlhelp_basename = 'Al-dentedoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -145,7 +144,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'al-dente.tex', u'al-dente Documentation',
+    (master_doc, 'Al-dente.tex', u'Al-dente Documentation',
      u'Florian Mayer', 'manual'),
 ]
 
@@ -155,7 +154,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'al-dente', u'al-dente Documentation',
+    (master_doc, 'al-dente', u'Al-dente Documentation',
      [author], 1)
 ]
 
@@ -166,7 +165,10 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'al-dente', u'al-dente Documentation',
-     author, 'al-dente', 'One line description of project.',
+    (master_doc, 'Al-dente', u'Al-dente Documentation',
+     author, 'Al-dente', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+
+
