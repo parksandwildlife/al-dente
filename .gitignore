@@ -1,5 +1,6 @@
 .env
 manual/
-results/
+results/*.png
+results/*.html
 drivers/
 geckodriver.log
