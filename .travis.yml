@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get install wget unzip
   - pip install -r requirements.txt
 install:
-  - sh download_drivers_travis.sh
+  - sh download_drivers.sh
 script:
   - whereis google-chrome-stable
   - whereis chromedriver

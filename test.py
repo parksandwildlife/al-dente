@@ -10,8 +10,13 @@ import unittest
 load_dotenv(find_dotenv())
 
 
+# ---------------------------------------------------------------------------#
+# Main test class defining all test cases
+# ---------------------------------------------------------------------------#
 class LearningTest(unittest.TestCase):
-    """A base TestCase for DBCA's training portal."""
+    """A base TestCase for DBCA's training portal using Chrome."""
+
+    drivername = "chrome"
 
     def login(self, driver):
         """Return a logged in driver."""
@@ -27,43 +32,56 @@ class LearningTest(unittest.TestCase):
 
     def setUp(self):
         """Return logged in drivers for Chrome and Firefox."""
-        # from selenium.webdriver.chrome import service as chrome_service
-        # service = service.Service('/usr/local/bin/chromedriver')
-        # service.start()
-        # capabilities = {'chrome.binary': '/usr/bin/google-chrome-stable'}
-        # driver = webdriver.Remote(service.service_url, capabilities)
+        # Chrome
+        self.driver = self.login(webdriver.Chrome())
 
-        self.chrome = self.login(webdriver.Chrome('./drivers/chromedriver'))
-        profile = webdriver.FirefoxProfile()
-        profile.native_events_enabled = True
-        self.firefox = self.login(webdriver.Firefox(profile))
-        # remote:
+        # Local driver - required setup for TravisCI
+        # from selenium.webdriver.chrome import service as chrome_service
+        # self.service = chrome_service.Service('/usr/local/bin/chromedriver')
+        # self.service.start()
+        # capabilities = {'chrome.binary': '/usr/bin/google-chrome-stable'}
+        # self.ls = webdriver.Remote(self.service.service_url, capabilities)
+
+        # Browserstack remote driver
         # bs_url = 'http://{0}:{1}@hub.browserstack.com:80/wd/hub'.format(
-        #     env(REMOTE_UN), env(REMOTE_PW)
-        # driver = webdriver.Remote(
-        #   command_executor=bs_url,
-        #   desired_capabilities={
-        #       'browser': 'chrome',
-        #       'build': 'First build',
-        #       'browserstack.debug': 'true'
-        #   })
+        #     os.environ.get("REMOTE_UN"), os.environ.get("REMOTE_PW"))
+        # self.rd = webdriver.Remote(
+        #     command_executor=bs_url,
+        #     desired_capabilities={
+        #         'browser': 'chrome',
+        #         'build': 'First build',
+        #         'browserstack.debug': 'true'
+        #     }
+        # )
 
     def test_logged_in(self):
-        """Test whether the setUp method works.
+        """Test if the user can log in.
 
-        The setUp should log the user into the course landing page.
+        If logged in, the menu bar shows "Logged in as...".
         """
-        print("Test whether user can log in and gets to landing page.")
-        self.chrome.save_screenshot('results/chrome_logged_in.png')
-        self.firefox.save_screenshot('results/firefox_logged_in.png')
-        assert "You are logged in as" in self.chrome.page_source
-        assert "You are logged in as" in self.firefox.page_source
+        self.driver.save_screenshot(
+            'results/{0}_logged_in.png'.format(self.drivername))
+        assert "You are logged in as" in self.driver.page_source
 
     def tearDown(self):
         """TearDown: close webdriver."""
-        self.chrome.close()
-        self.firefox.close()
-        pass
+        self.driver.close()
+
+
+# ---------------------------------------------------------------------------#
+# Alternative browser engines: add one class per engine
+# ---------------------------------------------------------------------------#
+class FirefoxTest(LearningTest):
+    """Run LearningTest using Firefox."""
+
+    drivername = "firefox"
+
+    def setUp(self):
+        """Return logged in drivers for Chrome and Firefox."""
+        profile = webdriver.FirefoxProfile()
+        profile.native_events_enabled = True
+        self.driver = self.login(webdriver.Firefox(profile))
+
 
 if __name__ == "__main__":
     unittest.main()
