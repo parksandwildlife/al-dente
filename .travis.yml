@@ -10,4 +10,4 @@ install:
 script:
   - whereis google-chrome-stable
   - whereis chromedriver
-  - python test.py
+  #- python test.py

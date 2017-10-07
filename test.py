@@ -27,6 +27,12 @@ class LearningTest(unittest.TestCase):
 
     def setUp(self):
         """Return logged in drivers for Chrome and Firefox."""
+        # from selenium.webdriver.chrome import service as chrome_service
+        # service = service.Service('/usr/local/bin/chromedriver')
+        # service.start()
+        # capabilities = {'chrome.binary': '/usr/bin/google-chrome-stable'}
+        # driver = webdriver.Remote(service.service_url, capabilities)
+
         self.chrome = self.login(webdriver.Chrome('./drivers/chromedriver'))
         profile = webdriver.FirefoxProfile()
         profile.native_events_enabled = True
