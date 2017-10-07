@@ -1,3 +1,8 @@
+.. al-dente documentation master file, created by
+   sphinx-quickstart on Sat Oct  7 08:48:44 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
 Welcome to al-dente's documentation!
 ====================================
 
@@ -5,8 +10,6 @@ Welcome to al-dente's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-Browser testing for Moodle courses. Is your Moodle al dente?
 
 
 Indices and tables

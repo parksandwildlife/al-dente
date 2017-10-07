@@ -4,9 +4,9 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = Al-dente
-SOURCEDIR     = source
-BUILDDIR      = ../docs
+SPHINXPROJ    = al-dente
+SOURCEDIR     = .
+BUILDDIR      = .
 
 # Put it first so that "make" without argument is like "make help".
 help:
